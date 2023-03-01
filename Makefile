@@ -1,5 +1,5 @@
 OUTDIR=./build
-DATAPACKS=$(shell fd --hidden --exclude .git --exclude test --max-depth 2 pack.mcmeta --exec-batch printf "%s\n" {//})
+DATAPACKS=$(shell fd --exclude .git --exclude test --max-depth 2 --type file --glob pack.mcmeta --exec-batch printf "%s\n" {//})
 TARGETS=$(addprefix $(OUTDIR)/,$(addsuffix .zip,$(DATAPACKS)))
 
 all: $(TARGETS)
